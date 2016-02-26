@@ -1,0 +1,47 @@
+<!--<h4 class="blog-post-title">Carbs</h4>
+<hr/>-->
+
+<div class="table-responsive">
+<div class="panel panel-primary">
+  <div class="panel-heading" style="font-size: 1.6em;">Carbs
+      <div class="sw-search" style="font-size: 0.8em;">
+            <div class="nav-search" id="nav-search">
+                    Filter: <span class="input-icon">
+                        <input placeholder="Filter products list ..." class="nav-search-input" ng-model="filterProduct" ng-change="resetLimit();"  autocomplete="off" type="text" style="width:300px;" focus>
+                        <i class="search-icon fa fa-search nav-search-icon"></i>
+                    </span>
+            </div>
+        </div>
+    </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+    <tr ng-show="grains.length==0"><td style="vertical-align:middle;"><i class="fa fa-ban fa-3x"></i>&nbsp;No data found</td></tr>
+    <tr ng-hide="grains.length>-1"><td style="vertical-align:middle;"><i class="fa fa-cog fa-3x fa-spin"></i>&nbsp;Loading</td></tr>
+    
+    <tr><th>Food</th><th>Serving size (15g of carbs)</th></tr>
+    <tr ng-click="showGrainsSwitch()" style="background-color:pink;"> <td>{{grainsExpand}} Grains/Beans/Starchy Vegetables</td><td></td></tr>
+    <tr ng-repeat="c in grains | filter:filterProduct | orderBy:'name'" id="{{c.name}}" ng-show="showGrains"> <!-- animate-on-change='c.packing + c.stock + c.price + c.description' ng-animate=" 'animate'" -->
+        <td>{{c.name}}</td><td>{{c.serving}}</td>
+    </tr>
+    <tr ng-click="showMilkSwitch()" style="background-color:pink;"> <td>{{milkExpand}} Milk/Yogurt/Milk Substiutes</td><td></td></tr>
+    <tr ng-repeat="a in milk | filter:filterProduct | orderBy:'name'" id="{{a.name}}" ng-show="showMilk">
+        <td>{{a.name}}</td><td>{{a.serving}}</td>    
+    </tr> 
+    <tr ng-click="showFruitsSwitch()" style="background-color:pink;"> <td>{{fruitsExpand}} Fruits/Fruit and Vegetable Juice</td><td></td></tr>
+    <tr ng-repeat="b in fruits | filter:filterProduct | orderBy:'name'" id="{{b.name}}" ng-show="showFruits">
+        <td>{{b.name}}</td><td>{{b.serving}}</td>   
+    </tr>        
+    <tr ng-click="showComboSwitch()" style="background-color:pink;"> <td>{{comboExpand}} Combination Foods</td><td></td></tr>
+    <tr ng-repeat="d in combo | filter:filterProduct | orderBy:'name'" id="{{d.name}}" ng-show="showCombo">
+        <td>{{d.name}}</td><td>{{d.serving}}</td>   
+    </tr>
+    <tr ng-click="showSweetsSwitch()" style="background-color:pink;"> <td>{{sweetsExpand}} Sweets/Snacks/Condiments</td><td></td></tr>
+    <tr ng-repeat="r in sweets | filter:filterProduct | orderBy:'name'" id="{{r.name}}" ng-show="showSweets">
+        <td>{{r.name}}</td><td>{{r.serving}}</td>   
+    </tr>    
+        
+    </table>
+</div>
+</div>
+</div>
+              

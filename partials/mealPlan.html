@@ -1,0 +1,26 @@
+<h4 class="blog-post-title">Meal Plan and food lists</h4>
+<hr/>
+
+<div class="table-responsive">
+<div class="panel panel-primary">
+  <div class="panel-heading" style="font-size: 1.6em;">Meal Plan
+      <div class="sw-search" style="font-size: 0.8em;">
+            <!--<div class="nav-search" id="nav-search">
+                    Filter: <span class="input-icon">
+                        <input placeholder="Filter products list ..." class="nav-search-input" ng-model="filterProduct" ng-change="resetLimit();"  autocomplete="off" type="text" style="width:300px;" focus>
+                        <i class="search-icon fa fa-search nav-search-icon"></i>
+                    </span>
+            </div>-->
+        </div>
+    </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+	    <tr><th ng-repeat="c in columns">{{c.text}}</th></tr>
+	    <tr ng-repeat="c in meals | filter:filterProduct | orderBy:'seq'" id="{{c.name}}"> 
+	        <td>{{c.time}}</td><td>{{c.name}}</td><td>{{c.servings}}</td>
+	    </tr>
+    </table>
+</div>
+</div>
+</div>
+              

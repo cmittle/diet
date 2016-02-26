@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="myApp" > <!-- -->
+<body ng-cloak="">
+  <title>Diet Web Application</title>
+  <link rel="stylesheet" href="css/bootstrap-3.3.6.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/font-awesome-4.5.0.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/custom.css" type="text/css" />
+ <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item" href="#/">Home</a>
+          <a class="blog-nav-item" href="#/carbs">Carbs List</a>
+          <a class="blog-nav-item" href="#/noncarbs">Non-Carbs List</a>
+        </nav>
+      </div>
+    </div>
+
+<div class="container">
+    <div class="page-content">
+      <div ng-view="" id="ng-view"></div>
+    </div>
+</div>
+
+<!-- Libraries -->
+<script src="js/angular-1.5.0.min.js"></script>
+<script src="js/ui-bootstrap-tpls-1.1.2.min.js"></script>
+<script src="js/angular-route-1.5.0.min.js"></script>
+<script src="js/angular-touch-1.5.0.min.js"></script>
+
+<!-- AngularJS custom codes -->
+<script src="app/app.js"></script>
+<script src="app/carbCtrl.js"></script>
+<script src="app/nonCarbCtrl.js"></script>
+<script src="app/mealPlanCtrl.js"></script>
+<script src="app/directives.js"></script>
+<script src="app/combineCtrl.js"></script>
+
+<!-- Some Bootstrap Helper Libraries -->
+
+<script src="js/jquery-1.12.1.min.js"></script>
+<script src="js/bootstrap-3.3.6.min.js"></script>
+<!--<script src="js/underscore.min.js"></script>-->
+</body>
+</html>
