@@ -3,47 +3,45 @@
 -->
 
 <div class="table-responsive">
-<div class="panel panel-primary">
-  <div class="panel-heading" style="font-size: 1.6em;">Non-Carbs
-      <div class="sw-search"  style="font-size: 0.8em;" >
-            <div class="nav-search" id="nav-search">
+    <div class="panel panel-primary">
+        <div class="panel-heading" style="font-size: 1.6em;">Non-Carbs
+            <div class="sw-search"  style="font-size: 0.8em;" >
+                <div class="nav-search" id="nav-search">
                     Filter: <span class="input-icon">
                         <input placeholder="Filter products list ..." class="nav-search-input" ng-model="filterProduct" ng-change="resetLimit();"  autocomplete="off" type="text" style="width:300px;" focus>
                         <i class="search-icon fa fa-search nav-search-icon"></i>
                     </span>
+                </div>
             </div>
         </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <tr ng-show="Meat.length==0"><td style="vertical-align:middle;"><i class="fa fa-ban fa-3x"></i>&nbsp;No data found</td></tr>
+                <tr ng-hide="Meat.length>-1"><td style="vertical-align:middle;"><i class="fa fa-cog fa-3x fa-spin"></i>&nbsp;Loading</td></tr>
+
+                <!--<tr><th ng-repeat="c in columns">{{c.text}}</th></tr>-->
+                <tr ng-click="showMeatSwitch()" style="background-color:pink;"> <td>{{meatExpand}} Meat - Avg serving size 3 oz.  5-7 oz. per day recommended.</td><td></td></tr>
+                <tr ng-repeat="c in Meat | filter:filterProduct | orderBy:'name'" id="{{c.name}}" ng-show="showMeat"> 
+                    <td>{{c.name}}</td><td>{{c.serving}}</td>
+                </tr>
+                <tr ng-click="showProteinSwitch()" style="background-color:pink;"> <td>{{proteinExpand}} Other protein choices</td><td></td></tr>
+                <tr ng-repeat="a in Protein | filter:filterProduct | orderBy:'name'" id="{{a.name}}" ng-show="showProtein">
+                    <td>{{a.name}}</td><td>{{a.serving}}</td>    
+                </tr> 
+                <tr ng-click="showFatSwitch()" style="background-color:pink;"> <td>{{fatsExpand}} Fats - No carbs ***Limit to 3-5 servings per day.***</td><td></td></tr>
+                <tr ng-repeat="b in Fat | filter:filterProduct | orderBy:'name'" id="{{b.name}}" ng-show="showFat">
+                    <td>{{b.name}}</td><td>{{b.serving}}</td>   
+                </tr>    
+                <tr ng-click="showFreeSwitch()" style="background-color:pink;"> <td>{{freeExpand}} Free Foods - 5g or less of carbs / serving and less than 20 calories / serving.  Eat any time.</td><td></td></tr>
+                <tr ng-repeat="d in Free | filter:filterProduct | orderBy:'name'" id="{{d.name}}" ng-show="showFree">
+                    <td>{{d.name}}</td><td>{{d.serving}}</td>   
+                </tr>  
+                <tr ng-click="showVegetablesSwitch()" style="background-color:pink;"> <td>{{vegetablesExpand}} Vegetables-(Very low carbohydrate) - 1/2 cup cooked or 1 cup raw (5g carb or less / serving</td><td></td></tr>
+                <tr ng-repeat="e in Vegetables | filter:filterProduct | orderBy:'name'" id="{{e.name}}" ng-show="showVegetables">
+                    <td>{{e.name}}</td><td>{{e.serving}}</td>   
+                </tr>  
+            </table>
+        </div>
     </div>
-  <div class="panel-body">
-    <table class="table table-striped">
-    <tr ng-show="Meat.length==0"><td style="vertical-align:middle;"><i class="fa fa-ban fa-3x"></i>&nbsp;No data found</td></tr>
-    <tr ng-hide="Meat.length>-1"><td style="vertical-align:middle;"><i class="fa fa-cog fa-3x fa-spin"></i>&nbsp;Loading</td></tr>
-    
-    <!--<tr><th ng-repeat="c in columns">{{c.text}}</th></tr>-->
-    <tr ng-click="showMeatSwitch()" style="background-color:pink;"> <td>Meat - Avg serving size 3 oz.  5-7 oz. per day recommended.</td><td></td></tr>
-    <tr ng-repeat="c in Meat | filter:filterProduct | orderBy:'name'" id="{{c.name}}" ng-show="showMeat"> 
-        <td>{{c.name}}</td><td>{{c.serving}}</td>
-    </tr>
-    <tr ng-click="showProteinSwitch()" style="background-color:pink;"> <td>Other protein choices</td><td></td></tr>
-    <tr ng-repeat="a in Protein | filter:filterProduct | orderBy:'name'" id="{{a.name}}" ng-show="showProtein">
-        <td>{{a.name}}</td><td>{{a.serving}}</td>    
-    </tr> 
-    <tr ng-click="showFatSwitch()" style="background-color:pink;"> <td>Fats - No carbs ***Limit to 3-5 servings per day.***</td><td></td></tr>
-    <tr ng-repeat="b in Fat | filter:filterProduct | orderBy:'name'" id="{{b.name}}" ng-show="showFat">
-        <td>{{b.name}}</td><td>{{b.serving}}</td>   
-    </tr>    
-    <tr ng-click="showFreeSwitch()" style="background-color:pink;"> <td>Free Foods - 5g or less of carbs / serving and less than 20 calories / serving.  Eat any time.</td><td></td></tr>
-    <tr ng-repeat="d in Free | filter:filterProduct | orderBy:'name'" id="{{d.name}}" ng-show="showFree">
-        <td>{{d.name}}</td><td>{{d.serving}}</td>   
-    </tr>  
-    <tr ng-click="showVegetablesSwitch()" style="background-color:pink;"> <td>Vegetables-(Very low carbohydrate) - 1/2 cup cooked or 1 cup raw (5g carb or less / serving</td><td></td></tr>
-    <tr ng-repeat="e in Vegetables | filter:filterProduct | orderBy:'name'" id="{{e.name}}" ng-show="showVegetables">
-        <td>{{e.name}}</td><td>{{e.serving}}</td>   
-    </tr>   
-    
-    
-    </table>
-</div>
-</div>
 </div>
               
